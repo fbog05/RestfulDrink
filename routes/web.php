@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DrinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get( "/elso/{name}", function( $name ){
     return view( "elso", [ "name" => $name ] );
 } );
+
+Route::get( "/index", [ DrinkController::class, "index" ] );
