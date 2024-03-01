@@ -13,4 +13,11 @@ class DrinkController extends Controller
 
         return view( "drink", compact( "name", "email" ) );
     }
+
+    public function newDrink(Request $request){
+
+        echo "<pre>";
+
+        print_r( $request->all() );
+    }
 }

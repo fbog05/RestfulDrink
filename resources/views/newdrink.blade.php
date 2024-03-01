@@ -3,7 +3,8 @@
 @extends( 'templates.header' )
 <div class="row">
     <div class="col-4 mx-auto">
-        <form>
+        <form action="adddrink" method="POST">
+          {{csrf_field()}}
             <div class="mb-3">
               <label for="name" class="form-label">Ital neve</label>
               <input type="text" class="form-control" id="name" name="name">
@@ -21,7 +22,6 @@
               <input type="text" class="form-control" id="package" name="package">
             </div>
             <button type="submit" class="btn btn-primary">Felvesz</button>
-            <button type="submit" class="btn btn-warning">Módosít</button>
         </form>
     </div>
 </div>
