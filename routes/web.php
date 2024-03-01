@@ -25,3 +25,5 @@ Route::get( "/elso/{name}", function( $name ){
 } );
 
 Route::get( "/index", [ DrinkController::class, "index" ] );
+
+Route::view( "/add", "addmod" );
