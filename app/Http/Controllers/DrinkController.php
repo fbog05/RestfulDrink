@@ -24,5 +24,7 @@ class DrinkController extends Controller
         $drink->amount = $input[ "amount" ];
         $drink->type_id = ( new TypeController )->getTypeId( $input[ "type" ] );
         $drink->package_id = ( new PackageController )->getPackageId( $input[ "package" ] );
+
+        $drink->save();
     }
 }
