@@ -35,6 +35,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Felvesz</button>
         </form>
+        
         <form action="add-package" method="POST">
           {{csrf_field()}}
             <div class="mb-3">
