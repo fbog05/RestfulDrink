@@ -8,8 +8,8 @@
           <form action="add-drink" method="POST">
             {{csrf_field()}}
               <div class="mb-3">
-                <label for="name" class="form-label">Ital neve</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <label for="drink" class="form-label">Ital neve</label>
+                <input type="text" class="form-control" id="drink" name="drink">
               </div>
               <div class="mb-3">
                 <label for="amount" class="form-label">Ital mennyisége</label>

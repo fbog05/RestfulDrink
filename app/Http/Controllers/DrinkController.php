@@ -9,10 +9,9 @@ class DrinkController extends Controller
 {
     public function index(){
 
-        $name = "Béla";
-        $email = "bela@vmi.lan";
+        $drinks = Drink::with( "type", "package" )->get();
 
-        return view( "drink", compact( "name", "email" ) );
+        return view( "drink", [ "drinks" => $drinks ] );
     }
 
     public function newDrink(Request $request){
@@ -20,8 +19,8 @@ class DrinkController extends Controller
         $input = $request->all();
 
         $drink = new Drink();
-        $drink->name = $input[ "name" ];
-        $drink->amount = $input[ "amount" ];
+        $drink->drink = $input[ "drink" ];
+        $drink->amount = (int)$input[ "amount" ];
         $drink->type_id = ( new TypeController )->getTypeId( $input[ "type" ] );
         $drink->package_id = ( new PackageController )->getPackageId( $input[ "package" ] );
 

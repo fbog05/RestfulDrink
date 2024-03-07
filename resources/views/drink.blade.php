@@ -15,29 +15,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="table-active">
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td></td>
+
+        @foreach ( $drinks as $drink )
+        <tr class="">
+          <td>{{$drink->id}}</td>
+          <td>{{$drink->drink}}</td>
+          <td>{{$drink->amount}}</td>
+          <td>{{$drink->type->type}}</td>
+          <td>{{$drink->package->package}}</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry the Bird</td>
-          <td></td>
-          <td>@twitter</td>
-          <td></td>
-        </tr>
-        <tr>
-        </tr>
+        @endforeach
       </tbody>
     </table>
 </div>
