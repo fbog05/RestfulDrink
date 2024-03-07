@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Drink;
 use Illuminate\Http\Request;
 
 class DrinkController extends Controller
@@ -16,8 +17,12 @@ class DrinkController extends Controller
 
     public function newDrink(Request $request){
 
-        echo "<pre>";
+        $input = $request->all();
 
-        print_r( $request->all() );
+        $drink = new Drink();
+        $drink->name = $input[ "name" ];
+        $drink->amount = $input[ "amount" ];
+        $drink->type_id = ( new TypeController )->getTypeId( $input[ "type" ] );
+        $drink->package_id = ( new PackageController )->getPackageId( $input[ "package" ] );
     }
 }

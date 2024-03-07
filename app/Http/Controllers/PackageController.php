@@ -16,4 +16,12 @@ class PackageController extends Controller
 
         $package->save();
     }
+
+    public function getPackageId( $package ){
+
+        $package = Package::where( "package", $package )->first();
+        $id = $package->id;
+
+        return $id;
+    }
 }

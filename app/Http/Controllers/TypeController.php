@@ -16,4 +16,12 @@ class TypeController extends Controller
 
         $type->save();
     }
+
+    public function getTypeId( $type ){
+
+        $type = Type::where( "type", $type )->first();
+        $id = $type->id;
+
+        return $id;
+    }
 }
