@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DrinkController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +30,8 @@ Route::get( "/index", [ DrinkController::class, "index" ] );
 
 Route::view( "/add", "newdrink" );
 
-Route::post( "/adddrink", [ DrinkController::class, "newDrink" ] );
+Route::post( "/add-drink", [ DrinkController::class, "newDrink" ] );
+
+Route::post( "/add-type", [ TypeController::class, "newType" ] );
+
+Route::post( "/add-package", [ PackageController::class, "newPackage" ] );
