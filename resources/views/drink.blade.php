@@ -17,12 +17,13 @@
       <tbody>
 
         @foreach ( $drinks as $drink )
-        <tr class="">
+        <tr>
           <td>{{$drink->id}}</td>
           <td>{{$drink->drink}}</td>
           <td>{{$drink->amount}}</td>
           <td>{{$drink->type->type}}</td>
           <td>{{$drink->package->package}}</td>
+          <td><a href='/modify/{{$drink->id}}'class="btn btn-warning">Módosítás</a></td>
         </tr>
         @endforeach
       </tbody>

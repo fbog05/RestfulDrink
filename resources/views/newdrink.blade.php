@@ -5,7 +5,7 @@
 @section( "content" )
   <div class="row mt-5 px-5">
       <div class="col-6">
-          <form action="add-drink" method="POST">
+          <form action="submit-drink" method="POST">
             {{csrf_field()}}
               <div class="mb-3">
                 <label for="drink" class="form-label">Ital neve</label>

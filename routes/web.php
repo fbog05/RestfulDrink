@@ -28,10 +28,14 @@ Route::get( "/elso/{name}", function( $name ){
 
 Route::get( "/index", [ DrinkController::class, "index" ] );
 
-Route::view( "/add", "newdrink" );
+Route::get( "/new-drink", [ DrinkController::class, "newDrink" ] );
 
-Route::post( "/add-drink", [ DrinkController::class, "newDrink" ] );
+Route::post( "/submit-drink", [ DrinkController::class, "submitDrink" ] );
 
 Route::post( "/add-type", [ TypeController::class, "newType" ] );
 
 Route::post( "/add-package", [ PackageController::class, "newPackage" ] );
+
+Route::get( "/modify/{id}", [ DrinkController::class, "modify" ] );
+
+Route::put( "/modify/-drink", [ DrinkController::class, "modifyDrink" ] );

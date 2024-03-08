@@ -14,7 +14,13 @@ class DrinkController extends Controller
         return view( "drink", [ "drinks" => $drinks ] );
     }
 
-    public function newDrink(Request $request){
+    public function newDrink(){
+
+        $drink = null;
+
+        return view( "newdrink" );
+    }
+    public function submitDrink(Request $request){
 
         $input = $request->all();
 
@@ -26,4 +32,17 @@ class DrinkController extends Controller
 
         $drink->save();
     }
+
+    public function modify( $id ){
+
+        $drink = Drink::with( "type", "package" )->find( $id );
+
+        return view( "modifydrink", [ "drink" => $drink ] );
+    }
+
+    public function modifyDrink( Request $request ){
+
+        print_r( $drink = $request->all());
+    }
+
 }
