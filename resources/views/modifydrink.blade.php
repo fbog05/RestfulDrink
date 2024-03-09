@@ -4,7 +4,6 @@
 
 @section( "content" )
   <div class="row mt-5">
-    {{$drink}}
       <div class="col-4 mx-auto mt-5 border p-3 shadow">
           <form action="modify-drink" method="POST">
             @csrf

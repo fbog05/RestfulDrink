@@ -43,7 +43,15 @@ class DrinkController extends Controller
 
     public function modifyDrink( Request $request ){
 
-        print_r( $drink = $request->all());
+        $input = $request->all();
+        $id = $input["id"];
+        $drink = Drink::find($id);
+
+        $drink->drink = $input["drink"];
+        $drink->amount = (int)$input["amount"];
+        $drink->type_id = (new TypeController)->getTypeId($input["type"]);
+        $drink->package_id = (new PackageController)->getPackageId($input["package"]);
+        $drink->save();
     }
 
 }
