@@ -6,8 +6,9 @@
   <div class="row mt-5">
     {{$drink}}
       <div class="col-4 mx-auto mt-5 border p-3 shadow">
-          <form action="modify-drink" method="PUT">
-            {{csrf_field()}}
+          <form action="modify-drink" method="POST">
+            @csrf
+            @method('PUT')
             <input type="hidden" name="id" value="{{$drink->id}}">
               <div class="mb-3">
                 <label for="drink" class="form-label fw-semibold">Ital neve</label>

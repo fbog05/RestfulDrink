@@ -39,3 +39,5 @@ Route::post( "/add-package", [ PackageController::class, "newPackage" ] );
 Route::get( "/modify/{id}", [ DrinkController::class, "modify" ] );
 
 Route::put( "/modify-drink", [ DrinkController::class, "modifyDrink" ] );
+
+Route::put( "modify/modify-drink", [ DrinkController::class, "modifyDrink" ] );

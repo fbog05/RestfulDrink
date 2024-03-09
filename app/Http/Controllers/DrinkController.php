@@ -20,6 +20,7 @@ class DrinkController extends Controller
 
         return view( "newdrink" );
     }
+    
     public function submitDrink(Request $request){
 
         $input = $request->all();
