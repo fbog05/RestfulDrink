@@ -16,7 +16,7 @@ class DrinkController extends Controller
 
     public function newDrink(){
 
-        $drink = null;
+        $drink = null; 
 
         return view( "newdrink" );
     }
