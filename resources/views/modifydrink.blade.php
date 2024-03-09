@@ -1,10 +1,10 @@
-@section( 'title', "Ital módosítás" )
-@include( 'templates.nav' )
-@extends( 'templates.master' )
+@section('title', "Ital módosítás")
+@include('templates.nav')
+@extends('templates.master')
 
-@section( "content" )
+@section("content")
   <div class="row mt-5">
-      <div class="col-4 mx-auto mt-5 border p-3 shadow">
+      <div class="col-4 mx-auto mt-5 border p-3 shadow rounded">
           <form action="modify-drink" method="POST">
             @csrf
             @method('PUT')
@@ -25,7 +25,9 @@
                 <label for="package" class="form-label fw-semibold">Ital kiszerelése</label>
                 <input type="text" class="form-control" id="package" name="package" value="{{$drink->package->package}}">
               </div>
-              <button type="submit" class="btn btn-warning">Módosít</button>
+              <div class="text-center">
+                <button type="submit" class="btn btn-warning">Módosít</button>
+              </div>
           </form>
       </div>
   </div>

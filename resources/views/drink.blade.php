@@ -7,23 +7,31 @@
   <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Ital</th>
-          <th scope="col">Mennyiség</th>
-          <th scope="col">Típus</th>
-          <th scope="col">Kiszerelés</th>
+          <th scope="col" class="text-center">Id</th>
+          <th scope="col" class="text-center">Ital</th>
+          <th scope="col" class="text-center">Mennyiség</th>
+          <th scope="col" class="text-center">Típus</th>
+          <th scope="col" class="text-center">Kiszerelés</th>
         </tr>
       </thead>
       <tbody>
 
         @foreach ( $drinks as $drink )
         <tr>
-          <td>{{$drink->id}}</td>
-          <td>{{$drink->drink}}</td>
-          <td>{{$drink->amount}}</td>
-          <td>{{$drink->type->type}}</td>
-          <td>{{$drink->package->package}}</td>
-          <td><a href='/modify/{{$drink->id}}'class="btn btn-warning">Módosítás</a></td>
+          <td class="text-center">{{$drink->id}}</td>
+          <td class="text-center">{{$drink->drink}}</td>
+          <td class="text-center">{{$drink->amount}}</td>
+          <td class="text-center">{{$drink->type->type}}</td>
+          <td class="text-center">{{$drink->package->package}}</td>
+          <td class="text-center"><a href='/modify/{{$drink->id}}'class="btn btn-warning">Módosítás</a></td>
+          <td class="text-center">
+            <form action="/delete-drink" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name="id" value="{{ $drink->id }}">
+                <button type="submit" class="btn btn-danger">Törlés</button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </tbody>

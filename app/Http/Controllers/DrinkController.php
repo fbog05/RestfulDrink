@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Drink;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class DrinkController extends Controller
@@ -32,6 +33,7 @@ class DrinkController extends Controller
         $drink->package_id = ( new PackageController )->getPackageId( $input[ "package" ] );
 
         $drink->save();
+        return redirect('/index');
     }
 
     public function modify( $id ){
@@ -51,7 +53,19 @@ class DrinkController extends Controller
         $drink->amount = (int)$input["amount"];
         $drink->type_id = (new TypeController)->getTypeId($input["type"]);
         $drink->package_id = (new PackageController)->getPackageId($input["package"]);
+
         $drink->save();
+        return redirect('/index');
+    }
+
+    public function deleteDrink(Request $request){
+
+        $id = $request["id"];
+        $drink = Drink::find($id);
+
+        $drink->delete();
+
+        return redirect('/index');
     }
 
 }
